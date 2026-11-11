@@ -4,6 +4,7 @@ import os
 import logging
 import shutil
 import subprocess
+import time
 
 import yaml
 
@@ -119,4 +120,11 @@ if __name__ == "__main__":
     force_recompute = args.force_recompute
     skip_r = args.skip_r
 
-    run_validation(configs, force_recompute, skip_r)
+    start_time = time.perf_counter()
+    try:
+        run_validation(configs, force_recompute, skip_r)
+    finally:
+        elapsed_time = time.perf_counter() - start_time
+        logging.getLogger('run_validation').info(
+            "Validation run took %.2f seconds", elapsed_time
+        )
