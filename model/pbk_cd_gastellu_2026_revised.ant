@@ -3,11 +3,19 @@
 # ============================================================
 
 function BW_male_lifetime(mval)
-    piecewise(3.938425 + 0.7518199 * mval - 0.02023793 * mval^2 + 0.0002921682 * mval^3 - 2.06762e-6 * mval^4 + 8.469e-9 * mval^5 - 2.188427e-11 * mval^6 + 3.699776e-14 * mval^7 - 4.099077e-17 * mval^8 + 2.874804e-20 * mval^9 - 1.159732e-23 * mval^10 + 2.052602e-27 * mval^11, mval <= 79 * 12, 76)
+    piecewise(              \
+        3.938425 + 0.7518199 * mval - 0.02023793 * mval^2 + 0.0002921682 * mval^3 - 2.06762e-6 * mval^4 + 8.469e-9 * mval^5 - 2.188427e-11 * mval^6 + 3.699776e-14 * mval^7 - 4.099077e-17 * mval^8 + 2.874804e-20 * mval^9 - 1.159732e-23 * mval^10 + 2.052602e-27 * mval^11, \
+        mval <= 79 * 12,    \
+        76                  \
+    )
 end
 
 function BW_female_lifetime(mval)
-    piecewise(3.932403 + 0.6866462 * mval - 0.01949911 * mval^2 + 0.00031311 * mval^3 - 2.466654e-6 * mval^4 + 1.113217e-8 * mval^5 - 3.131402e-11 * mval^6 + 5.693737e-14 * mval^7 - 6.706947e-17 * mval^8 + 4.947858e-20 * mval^9 - 2.079251e-23 * mval^10 + 3.800367e-27 * mval^11, mval <= 79 * 12, 68)
+    piecewise(              \
+        3.932403 + 0.6866462 * mval - 0.01949911 * mval^2 + 0.00031311 * mval^3 - 2.466654e-6 * mval^4 + 1.113217e-8 * mval^5 - 3.131402e-11 * mval^6 + 5.693737e-14 * mval^7 - 6.706947e-17 * mval^8 + 4.947858e-20 * mval^9 - 2.079251e-23 * mval^10 + 3.800367e-27 * mval^11, \
+        mval <= 79 * 12,    \
+        68                  \
+    )
 end
 
 # ============================================================
@@ -65,15 +73,26 @@ model pbk_cd_gastellu_2026_revised()
     # ============================================================
 
     # scaling with respect to nominal BW
-    AgeInit = 30                        # Age at start of simulation [year]
-    AgeRef = 30                         # Reference age corresponding to target body weight [year]
-    sex = 2                             # [1 = male, 2 = female]
-    Age := time / 365 + AgeInit        # Age during simulation [year]
-    BWRef = 85                          # Subject bodyweight at reference age [kg]
-    rho_body = 1                        # Body density [kg/L]
-    BWNominal := piecewise(BW_male_lifetime(AgeRef * 12), sex==1, BW_female_lifetime(AgeRef * 12)) # Nominal body weight at reference age based on nominal lifetime equation [kg]
-    Delta_BWs3 := BWRef / BWNominal     # Scaling factor to scale nominal body weight to reference (=target) weight [-]
-    Delta_BW := piecewise(1 + (Delta_BWs3 - 1) * (Age * 365) / 1095, (Age * 365) <= 1095, Delta_BWs3) # Individual body-weight multiplier [-]
+    AgeInit = 30                            # Age at start of simulation [year]
+    AgeRef = 30                             # Reference age corresponding to target body weight [year]
+    sex = 2                                 # [1 = male, 2 = female]
+    Age := AgeInit + time / 365             # Age during simulation [year]
+    BWRef = 85                              # Subject bodyweight at reference age [kg]
+    rho_body = 1                            # Body density [kg/L]
+
+    # Nominal body weight at reference age based on nominal lifetime equation [kg]
+    BWNominal := piecewise(              \
+        BW_male_lifetime(AgeRef * 12),  \
+        sex == 1,                       \
+        BW_female_lifetime(AgeRef * 12) \
+    )
+
+    # Individual body-weight multiplier [-]
+    Delta_BW := piecewise(                                  \
+        1 + ((BWRef / BWNominal) - 1) * Age / 3,            \
+        Age <= 3,                                           \
+        BWRef / BWNominal                                   \
+    )
 
     # ============================================================
     # TIME-VARYING PHYSIOLOGY
@@ -82,14 +101,21 @@ model pbk_cd_gastellu_2026_revised()
     # Body weight
     wbw := Delta_BW * piecewise(BW_male_lifetime(Age * 12), sex == 1, BW_female_lifetime(Age * 12)) # Individual bodyweight during simulation
 
-    # Hematocrit
-    hct_mid := 1.12815e-6 * Age^3 - 1.72362e-4 * Age^2 + 8.15264e-3 * Age + 0.327363     # Predicted hematocrit in the age-dependent (ages 2-18 years) [-]
-    hct := piecewise( 0.359, Age <= 2, hct_mid, Age < 18, 0.4248446 )                    # Age-specific hematocrit fraction [-]
+    # Age-specific hematocrit fraction [-]
+    hct := piecewise(   \
+        0.359,          \
+        Age <= 2,       \
+        1.12815e-6 * Age^3 - 1.72362e-4 * Age^2 + 8.15264e-3 * Age + 0.327363, \
+        Age < 18,       \
+        0.4248446       \
+    )
 
     # Blood volume
-    vb_male := piecewise( (-0.027 * Age + 0.077) * wbw, Age < 1, (0.0761 / (1 + exp(-0.683 * Age + 0.946))) * wbw )
-    vb_female := piecewise( (-0.0273 * Age + 0.0771) * wbw, Age < 1, (3.28e-5 * Age^3 - 1.21e-3 * Age^2 + 1.24e-2 * Age + 3.86e-2) * wbw, Age < 14.019723, 0.065 * wbw )
-    vb := piecewise( vb_male, sex == 1, vb_female )
+    vb := piecewise(    \
+        piecewise((-0.027 * Age + 0.077) * wbw, Age < 1, (0.0761 / (1 + exp(-0.683 * Age + 0.946))) * wbw), \
+        sex == 1,       \
+        piecewise((-0.0273 * Age + 0.0771) * wbw, Age < 1, (3.28e-5 * Age^3 - 1.21e-3 * Age^2 + 1.24e-2 * Age + 3.86e-2) * wbw, Age < 14.019723, 0.065 * wbw) \
+    )
 
     # Plasma volume
     vp := (1 - hct) * vb
@@ -98,43 +124,52 @@ model pbk_cd_gastellu_2026_revised()
     vrbc := hct * vb
 
     # Kidney volume
-    vk_male := piecewise( (0.0042 + (0.00767 - 0.0042) * exp(-0.206 * Age)) * wbw, Age <= 79, (0.0042 + 2.969074e-10) * wbw )
-    vk_female := piecewise( (0.0046 + (0.00709 - 0.0046) * exp(-0.221 * Age)) * wbw, Age <= 79, (0.0046 + 6.514063e-11) * wbw )
-    vk := piecewise( vk_male, sex == 1, vk_female )
+    vk := piecewise(    \
+        piecewise((0.0042 + (0.00767 - 0.0042) * exp(-0.206 * Age)) * wbw, Age <= 79, (0.0042 + 2.969074e-10) * wbw),  \
+        sex == 1,       \
+        piecewise((0.0046 + (0.00709 - 0.0046) * exp(-0.221 * Age)) * wbw, Age <= 79, (0.0046 + 6.514063e-11) * wbw)   \
+    )
 
     # Lung volume
-    vlungs := piecewise( 0.0068 * wbw, sex == 1, 0.0070 * wbw )
+    vlungs := piecewise(0.0068 * wbw, sex == 1, 0.0070 * wbw)
 
     # Intestinal tract volume
-    vint_male := piecewise( (-8.2562e-5 * Age^2 + 1.3523e-3 * Age + 1.293e-2) * wbw, Age < 16, 0.014 * wbw )
-    vint_female := piecewise( (-7.421e-5 * Age^2 + 1.276e-3 * Age + 1.298e-2) * wbw, Age < 14.453301, 0.0160 * wbw )
-    vintestine := piecewise( vint_male, sex == 1, vint_female )
+    vintestine := piecewise(    \
+        piecewise((-8.2562e-5 * Age^2 + 1.3523e-3 * Age + 1.293e-2) * wbw, Age < 16, 0.014 * wbw), \
+        sex == 1,               \
+        piecewise((-7.421e-5 * Age^2 + 1.276e-3 * Age + 1.298e-2) * wbw, Age < 14.453301, 0.0160 * wbw) \
+    )
 
     # Liver volume
-    vl_male := piecewise( (0.0247 + (0.0409 - 0.0247) * exp(-0.218 * Age)) * wbw, Age <= 79, (0.0247 + 5.371498e-10) * wbw )
-    vl_female := piecewise( (0.0233 + (0.038 - 0.0233) * exp(-0.122 * Age)) * wbw, Age <= 79, (0.0233 + 9.58489e-7) * wbw )
-    vl := piecewise( vl_male, sex == 1, vl_female )
+    vl := piecewise(    \
+        piecewise((0.0247 + (0.0409 - 0.0247) * exp(-0.218 * Age)) * wbw, Age <= 79, (0.0247 + 5.371498e-10) * wbw), \
+        sex == 1,       \
+        piecewise( (0.0233 + (0.038 - 0.0233) * exp(-0.122 * Age)) * wbw, Age <= 79, (0.0233 + 9.58489e-7) * wbw) \
+    )
 
     # Rest of body volume
     vother := (wbw / rho_body) - (vk + vb + vl + vintestine + vlungs)			# in L
 
     # Creatinine
     Delta_creat = 1                     # [-]
-    ucr_base := 0.032 + 2.098e-2 * Age + 9.104e-3 * Age^2 - 4.550e-4 * Age^3 + 7.578e-6 * Age^4 - 4.232e-8 * Age^5
-    ucr := piecewise(ucr_base * Delta_creat, Age <= 70, 0.865756 * Delta_creat)
+    ucr := piecewise(           \
+        (0.032 + 2.098e-2 * Age + 9.104e-3 * Age^2 - 4.550e-4 * Age^3 + 7.578e-6 * Age^4 - 4.232e-8 * Age^5) * Delta_creat, \
+        Age <= 70,              \
+        0.865756 * Delta_creat  \
+    )
 
     # Urine volume
     Vurine := 0.0294 * wbw
 
     # Sex-specific GI fraction [-]
-    k5 := piecewise( k5_h, sex == 1, k5_f )
+    k5 := piecewise(k5_h, sex == 1, k5_f)
 
     # Age-dependent kidney elimination [/d]
-    k19x := piecewise( k19, Age <= 30, k19 + k21 * (Age - 30) )
+    k19x := piecewise(k19, Age <= 30, k19 + k21 * (Age - 30))
 
     # Age-dependent MT -> kidney fraction [-]
     k17_decline := k17 - (k17 / 3) * (Age - 30) / 50
-    k17x := piecewise( k17, Age <= 30, 0, k17_decline < 0, k17_decline )
+    k17x := piecewise(k17, Age <= 30, 0, k17_decline < 0, k17_decline)
     k17b := 1 - k17x
 
     # ============================================================
@@ -234,7 +269,7 @@ model pbk_cd_gastellu_2026_revised()
     # ============================================================
 
     BLOOD := RBC + k20 * (PLASMA + META)
-    CBLOOD := BLOOD / vb					      # whole blood concentration in µg/L
+    CBLOOD := BLOOD / vb                          # whole blood concentration in µg/L
 
     ur := k_MT_out * k17b * META + k19x * KIDNEY  # Urinary Cd excretion rate in µg/day
     ucdcr := ur / ucr                             # Cd/creatinine in µg/g creatinine

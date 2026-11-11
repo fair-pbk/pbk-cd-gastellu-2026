@@ -777,8 +777,7 @@
       <parameter id="BWRef" name="body weight of individual at reference age" value="85" units="KiloGM" constant="true"/>
       <parameter id="rho_body" name="body density" value="1" units="KiloGM_PER_L" constant="true"/>
       <parameter id="BWNominal" name="sex specific nominal population bodyweight" units="KiloGM" constant="false"/>
-      <parameter id="Delta_BWs3" name="individual body-weight multiplier" units="UNITLESS" constant="false"/>
-      <parameter id="Delta_BW" name="age-dependent body-weight multiplier (1 at birth; Delta_BWs3 from age 3)" units="UNITLESS" constant="false"/>
+      <parameter id="Delta_BW" name="age-dependent body-weight multiplier" units="UNITLESS" constant="false"/>
       <parameter metaid="meta_wbw" id="wbw" name="bodyweight during simulation" units="KiloGM" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -792,34 +791,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="hct_mid" name="predicted hematocrit in the age-dependent (ages 2-18 years)" units="UNITLESS" constant="false"/>
       <parameter id="hct" name="age-specific hematocrit fraction" units="UNITLESS" constant="false"/>
-      <parameter metaid="meta_vb_male" id="vb_male" name="male whole-blood volume or mass calculated from body weight" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_vb_male">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00108"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_vb_female" id="vb_female" name="female whole-blood volume or mass calculated from body weight" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_vb_female">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00108"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
       <parameter metaid="meta_vb" id="vb" name="whole blood volume" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -847,32 +819,6 @@
         </annotation>
       </parameter>
       <parameter id="vrbc" name="volume of red blood cells" units="L" constant="false"/>
-      <parameter metaid="meta_vk_male" id="vk_male" name="male kidney volume" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_vk_male">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00079"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_vk_female" id="vk_female" name="female kidney volume" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_vk_female">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00079"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
       <parameter metaid="meta_vk" id="vk" name="volume of kidney" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -899,32 +845,6 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_vint_male" id="vint_male" name="volume of male intestine" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_vint_male">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00069"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_vint_female" id="vint_female" name="volume of female intestine" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_vint_female">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00069"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
       <parameter metaid="meta_vintestine" id="vintestine" name="volume of intestine" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -932,32 +852,6 @@
               <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00069"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_vl_male" id="vl_male" name="volume of male liver" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_vl_male">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00077"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_vl_female" id="vl_female" name="volume of female liver" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_vl_female">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00077"/>
                 </rdf:Bag>
               </bqmodel:is>
             </rdf:Description>
@@ -991,7 +885,6 @@
         </annotation>
       </parameter>
       <parameter id="Delta_creat" name="individual multiplicative adjustment to predicted urine creatinine output" value="1" units="UNITLESS" constant="true"/>
-      <parameter id="ucr_base" name="reference creatinine output before Delta_creat adjustment" units="GM_PER_DAY" constant="false"/>
       <parameter id="ucr" name="age-dependent creatinine output after Delta_creat adjustment" units="GM_PER_DAY" constant="false"/>
       <parameter id="Vurine" name="average urine volume" units="L" constant="false"/>
       <parameter id="k5" name="sex-specific gut:intestine fraction" units="UNITLESS" constant="false"/>
@@ -1095,12 +988,12 @@
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
             <plus/>
+            <ci> AgeInit </ci>
             <apply>
               <divide/>
               <csymbol encoding="text" definitionURL="http://www.sbml.org/sbml/symbols/time"> time </csymbol>
               <cn type="integer"> 365 </cn>
             </apply>
-            <ci> AgeInit </ci>
           </apply>
         </math>
       </assignmentRule>
@@ -1135,15 +1028,6 @@
           </piecewise>
         </math>
       </assignmentRule>
-      <assignmentRule variable="Delta_BWs3">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <divide/>
-            <ci> BWRef </ci>
-            <ci> BWNominal </ci>
-          </apply>
-        </math>
-      </assignmentRule>
       <assignmentRule variable="Delta_BW">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <piecewise>
@@ -1157,27 +1041,30 @@
                     <times/>
                     <apply>
                       <minus/>
-                      <ci> Delta_BWs3 </ci>
+                      <apply>
+                        <divide/>
+                        <ci> BWRef </ci>
+                        <ci> BWNominal </ci>
+                      </apply>
                       <cn type="integer"> 1 </cn>
                     </apply>
                     <ci> Age </ci>
-                    <cn type="integer"> 365 </cn>
                   </apply>
-                  <cn type="integer"> 1095 </cn>
+                  <cn type="integer"> 3 </cn>
                 </apply>
               </apply>
               <apply>
                 <leq/>
-                <apply>
-                  <times/>
-                  <ci> Age </ci>
-                  <cn type="integer"> 365 </cn>
-                </apply>
-                <cn type="integer"> 1095 </cn>
+                <ci> Age </ci>
+                <cn type="integer"> 3 </cn>
               </apply>
             </piece>
             <otherwise>
-              <ci> Delta_BWs3 </ci>
+              <apply>
+                <divide/>
+                <ci> BWRef </ci>
+                <ci> BWNominal </ci>
+              </apply>
             </otherwise>
           </piecewise>
         </math>
@@ -1217,40 +1104,6 @@
           </apply>
         </math>
       </assignmentRule>
-      <assignmentRule variable="hct_mid">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <plus/>
-            <apply>
-              <minus/>
-              <apply>
-                <times/>
-                <cn type="e-notation"> 1.12815 <sep/> -6 </cn>
-                <apply>
-                  <power/>
-                  <ci> Age </ci>
-                  <cn type="integer"> 3 </cn>
-                </apply>
-              </apply>
-              <apply>
-                <times/>
-                <cn> 0.000172362 </cn>
-                <apply>
-                  <power/>
-                  <ci> Age </ci>
-                  <cn type="integer"> 2 </cn>
-                </apply>
-              </apply>
-            </apply>
-            <apply>
-              <times/>
-              <cn> 0.00815264 </cn>
-              <ci> Age </ci>
-            </apply>
-            <cn> 0.327363 </cn>
-          </apply>
-        </math>
-      </assignmentRule>
       <assignmentRule variable="hct">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <piecewise>
@@ -1263,7 +1116,36 @@
               </apply>
             </piece>
             <piece>
-              <ci> hct_mid </ci>
+              <apply>
+                <plus/>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <times/>
+                    <cn type="e-notation"> 1.12815 <sep/> -6 </cn>
+                    <apply>
+                      <power/>
+                      <ci> Age </ci>
+                      <cn type="integer"> 3 </cn>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <cn> 0.000172362 </cn>
+                    <apply>
+                      <power/>
+                      <ci> Age </ci>
+                      <cn type="integer"> 2 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <cn> 0.00815264 </cn>
+                  <ci> Age </ci>
+                </apply>
+                <cn> 0.327363 </cn>
+              </apply>
               <apply>
                 <lt/>
                 <ci> Age </ci>
@@ -1276,137 +1158,58 @@
           </piecewise>
         </math>
       </assignmentRule>
-      <assignmentRule variable="vb_male">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <piecewise>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <apply>
-                    <times/>
-                    <cn> -0.027 </cn>
-                    <ci> Age </ci>
-                  </apply>
-                  <cn> 0.077 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <lt/>
-                <ci> Age </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </piece>
-            <otherwise>
-              <apply>
-                <times/>
-                <apply>
-                  <divide/>
-                  <cn> 0.0761 </cn>
-                  <apply>
-                    <plus/>
-                    <cn type="integer"> 1 </cn>
-                    <apply>
-                      <exp/>
-                      <apply>
-                        <plus/>
-                        <apply>
-                          <times/>
-                          <cn> -0.683 </cn>
-                          <ci> Age </ci>
-                        </apply>
-                        <cn> 0.946 </cn>
-                      </apply>
-                    </apply>
-                  </apply>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-            </otherwise>
-          </piecewise>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="vb_female">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <piecewise>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <apply>
-                    <times/>
-                    <cn> -0.0273 </cn>
-                    <ci> Age </ci>
-                  </apply>
-                  <cn> 0.0771 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <lt/>
-                <ci> Age </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </piece>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <apply>
-                    <minus/>
-                    <apply>
-                      <times/>
-                      <cn type="e-notation"> 3.28 <sep/> -5 </cn>
-                      <apply>
-                        <power/>
-                        <ci> Age </ci>
-                        <cn type="integer"> 3 </cn>
-                      </apply>
-                    </apply>
-                    <apply>
-                      <times/>
-                      <cn> 0.00121 </cn>
-                      <apply>
-                        <power/>
-                        <ci> Age </ci>
-                        <cn type="integer"> 2 </cn>
-                      </apply>
-                    </apply>
-                  </apply>
-                  <apply>
-                    <times/>
-                    <cn> 0.0124 </cn>
-                    <ci> Age </ci>
-                  </apply>
-                  <cn> 0.0386 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <lt/>
-                <ci> Age </ci>
-                <cn> 14.019723 </cn>
-              </apply>
-            </piece>
-            <otherwise>
-              <apply>
-                <times/>
-                <cn> 0.065 </cn>
-                <ci> wbw </ci>
-              </apply>
-            </otherwise>
-          </piecewise>
-        </math>
-      </assignmentRule>
       <assignmentRule variable="vb">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <piecewise>
             <piece>
-              <ci> vb_male </ci>
+              <piecewise>
+                <piece>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <times/>
+                        <cn> -0.027 </cn>
+                        <ci> Age </ci>
+                      </apply>
+                      <cn> 0.077 </cn>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                  <apply>
+                    <lt/>
+                    <ci> Age </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </piece>
+                <otherwise>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <divide/>
+                      <cn> 0.0761 </cn>
+                      <apply>
+                        <plus/>
+                        <cn type="integer"> 1 </cn>
+                        <apply>
+                          <exp/>
+                          <apply>
+                            <plus/>
+                            <apply>
+                              <times/>
+                              <cn> -0.683 </cn>
+                              <ci> Age </ci>
+                            </apply>
+                            <cn> 0.946 </cn>
+                          </apply>
+                        </apply>
+                      </apply>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                </otherwise>
+              </piecewise>
               <apply>
                 <eq/>
                 <ci> sex </ci>
@@ -1414,7 +1217,76 @@
               </apply>
             </piece>
             <otherwise>
-              <ci> vb_female </ci>
+              <piecewise>
+                <piece>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <times/>
+                        <cn> -0.0273 </cn>
+                        <ci> Age </ci>
+                      </apply>
+                      <cn> 0.0771 </cn>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                  <apply>
+                    <lt/>
+                    <ci> Age </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </piece>
+                <piece>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <minus/>
+                        <apply>
+                          <times/>
+                          <cn type="e-notation"> 3.28 <sep/> -5 </cn>
+                          <apply>
+                            <power/>
+                            <ci> Age </ci>
+                            <cn type="integer"> 3 </cn>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <times/>
+                          <cn> 0.00121 </cn>
+                          <apply>
+                            <power/>
+                            <ci> Age </ci>
+                            <cn type="integer"> 2 </cn>
+                          </apply>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <times/>
+                        <cn> 0.0124 </cn>
+                        <ci> Age </ci>
+                      </apply>
+                      <cn> 0.0386 </cn>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                  <apply>
+                    <lt/>
+                    <ci> Age </ci>
+                    <cn> 14.019723 </cn>
+                  </apply>
+                </piece>
+                <otherwise>
+                  <apply>
+                    <times/>
+                    <cn> 0.065 </cn>
+                    <ci> wbw </ci>
+                  </apply>
+                </otherwise>
+              </piecewise>
             </otherwise>
           </piecewise>
         </math>
@@ -1441,107 +1313,54 @@
           </apply>
         </math>
       </assignmentRule>
-      <assignmentRule variable="vk_male">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <piecewise>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <cn> 0.0042 </cn>
-                  <apply>
-                    <times/>
-                    <apply>
-                      <minus/>
-                      <cn> 0.00767 </cn>
-                      <cn> 0.0042 </cn>
-                    </apply>
-                    <apply>
-                      <exp/>
-                      <apply>
-                        <times/>
-                        <cn> -0.206 </cn>
-                        <ci> Age </ci>
-                      </apply>
-                    </apply>
-                  </apply>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> Age </ci>
-                <cn type="integer"> 79 </cn>
-              </apply>
-            </piece>
-            <otherwise>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <cn> 0.0042 </cn>
-                  <cn type="e-notation"> 2.969074 <sep/> -10 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-            </otherwise>
-          </piecewise>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="vk_female">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <piecewise>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <cn> 0.0046 </cn>
-                  <apply>
-                    <times/>
-                    <apply>
-                      <minus/>
-                      <cn> 0.00709 </cn>
-                      <cn> 0.0046 </cn>
-                    </apply>
-                    <apply>
-                      <exp/>
-                      <apply>
-                        <times/>
-                        <cn> -0.221 </cn>
-                        <ci> Age </ci>
-                      </apply>
-                    </apply>
-                  </apply>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> Age </ci>
-                <cn type="integer"> 79 </cn>
-              </apply>
-            </piece>
-            <otherwise>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <cn> 0.0046 </cn>
-                  <cn type="e-notation"> 6.514063 <sep/> -11 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-            </otherwise>
-          </piecewise>
-        </math>
-      </assignmentRule>
       <assignmentRule variable="vk">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <piecewise>
             <piece>
-              <ci> vk_male </ci>
+              <piecewise>
+                <piece>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <cn> 0.0042 </cn>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <minus/>
+                          <cn> 0.00767 </cn>
+                          <cn> 0.0042 </cn>
+                        </apply>
+                        <apply>
+                          <exp/>
+                          <apply>
+                            <times/>
+                            <cn> -0.206 </cn>
+                            <ci> Age </ci>
+                          </apply>
+                        </apply>
+                      </apply>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                  <apply>
+                    <leq/>
+                    <ci> Age </ci>
+                    <cn type="integer"> 79 </cn>
+                  </apply>
+                </piece>
+                <otherwise>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <cn> 0.0042 </cn>
+                      <cn type="e-notation"> 2.969074 <sep/> -10 </cn>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                </otherwise>
+              </piecewise>
               <apply>
                 <eq/>
                 <ci> sex </ci>
@@ -1549,7 +1368,50 @@
               </apply>
             </piece>
             <otherwise>
-              <ci> vk_female </ci>
+              <piecewise>
+                <piece>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <cn> 0.0046 </cn>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <minus/>
+                          <cn> 0.00709 </cn>
+                          <cn> 0.0046 </cn>
+                        </apply>
+                        <apply>
+                          <exp/>
+                          <apply>
+                            <times/>
+                            <cn> -0.221 </cn>
+                            <ci> Age </ci>
+                          </apply>
+                        </apply>
+                      </apply>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                  <apply>
+                    <leq/>
+                    <ci> Age </ci>
+                    <cn type="integer"> 79 </cn>
+                  </apply>
+                </piece>
+                <otherwise>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <cn> 0.0046 </cn>
+                      <cn type="e-notation"> 6.514063 <sep/> -11 </cn>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                </otherwise>
+              </piecewise>
             </otherwise>
           </piecewise>
         </math>
@@ -1579,95 +1441,48 @@
           </piecewise>
         </math>
       </assignmentRule>
-      <assignmentRule variable="vint_male">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <piecewise>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <apply>
-                    <times/>
-                    <cn type="e-notation"> -8.2562 <sep/> -5 </cn>
-                    <apply>
-                      <power/>
-                      <ci> Age </ci>
-                      <cn type="integer"> 2 </cn>
-                    </apply>
-                  </apply>
-                  <apply>
-                    <times/>
-                    <cn> 0.0013523 </cn>
-                    <ci> Age </ci>
-                  </apply>
-                  <cn> 0.01293 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <lt/>
-                <ci> Age </ci>
-                <cn type="integer"> 16 </cn>
-              </apply>
-            </piece>
-            <otherwise>
-              <apply>
-                <times/>
-                <cn> 0.014 </cn>
-                <ci> wbw </ci>
-              </apply>
-            </otherwise>
-          </piecewise>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="vint_female">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <piecewise>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <apply>
-                    <times/>
-                    <cn type="e-notation"> -7.421 <sep/> -5 </cn>
-                    <apply>
-                      <power/>
-                      <ci> Age </ci>
-                      <cn type="integer"> 2 </cn>
-                    </apply>
-                  </apply>
-                  <apply>
-                    <times/>
-                    <cn> 0.001276 </cn>
-                    <ci> Age </ci>
-                  </apply>
-                  <cn> 0.01298 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <lt/>
-                <ci> Age </ci>
-                <cn> 14.453301 </cn>
-              </apply>
-            </piece>
-            <otherwise>
-              <apply>
-                <times/>
-                <cn> 0.016 </cn>
-                <ci> wbw </ci>
-              </apply>
-            </otherwise>
-          </piecewise>
-        </math>
-      </assignmentRule>
       <assignmentRule variable="vintestine">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <piecewise>
             <piece>
-              <ci> vint_male </ci>
+              <piecewise>
+                <piece>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <apply>
+                        <times/>
+                        <cn type="e-notation"> -8.2562 <sep/> -5 </cn>
+                        <apply>
+                          <power/>
+                          <ci> Age </ci>
+                          <cn type="integer"> 2 </cn>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <times/>
+                        <cn> 0.0013523 </cn>
+                        <ci> Age </ci>
+                      </apply>
+                      <cn> 0.01293 </cn>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                  <apply>
+                    <lt/>
+                    <ci> Age </ci>
+                    <cn type="integer"> 16 </cn>
+                  </apply>
+                </piece>
+                <otherwise>
+                  <apply>
+                    <times/>
+                    <cn> 0.014 </cn>
+                    <ci> wbw </ci>
+                  </apply>
+                </otherwise>
+              </piecewise>
               <apply>
                 <eq/>
                 <ci> sex </ci>
@@ -1675,103 +1490,44 @@
               </apply>
             </piece>
             <otherwise>
-              <ci> vint_female </ci>
-            </otherwise>
-          </piecewise>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="vl_male">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <piecewise>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <cn> 0.0247 </cn>
+              <piecewise>
+                <piece>
                   <apply>
                     <times/>
                     <apply>
-                      <minus/>
-                      <cn> 0.0409 </cn>
-                      <cn> 0.0247 </cn>
-                    </apply>
-                    <apply>
-                      <exp/>
+                      <plus/>
                       <apply>
                         <times/>
-                        <cn> -0.218 </cn>
+                        <cn type="e-notation"> -7.421 <sep/> -5 </cn>
+                        <apply>
+                          <power/>
+                          <ci> Age </ci>
+                          <cn type="integer"> 2 </cn>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <times/>
+                        <cn> 0.001276 </cn>
                         <ci> Age </ci>
                       </apply>
+                      <cn> 0.01298 </cn>
                     </apply>
+                    <ci> wbw </ci>
                   </apply>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> Age </ci>
-                <cn type="integer"> 79 </cn>
-              </apply>
-            </piece>
-            <otherwise>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <cn> 0.0247 </cn>
-                  <cn type="e-notation"> 5.371498 <sep/> -10 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-            </otherwise>
-          </piecewise>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="vl_female">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <piecewise>
-            <piece>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <cn> 0.0233 </cn>
+                  <apply>
+                    <lt/>
+                    <ci> Age </ci>
+                    <cn> 14.453301 </cn>
+                  </apply>
+                </piece>
+                <otherwise>
                   <apply>
                     <times/>
-                    <apply>
-                      <minus/>
-                      <cn> 0.038 </cn>
-                      <cn> 0.0233 </cn>
-                    </apply>
-                    <apply>
-                      <exp/>
-                      <apply>
-                        <times/>
-                        <cn> -0.122 </cn>
-                        <ci> Age </ci>
-                      </apply>
-                    </apply>
+                    <cn> 0.016 </cn>
+                    <ci> wbw </ci>
                   </apply>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> Age </ci>
-                <cn type="integer"> 79 </cn>
-              </apply>
-            </piece>
-            <otherwise>
-              <apply>
-                <times/>
-                <apply>
-                  <plus/>
-                  <cn> 0.0233 </cn>
-                  <cn type="e-notation"> 9.58489 <sep/> -7 </cn>
-                </apply>
-                <ci> wbw </ci>
-              </apply>
+                </otherwise>
+              </piecewise>
             </otherwise>
           </piecewise>
         </math>
@@ -1780,7 +1536,50 @@
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <piecewise>
             <piece>
-              <ci> vl_male </ci>
+              <piecewise>
+                <piece>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <cn> 0.0247 </cn>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <minus/>
+                          <cn> 0.0409 </cn>
+                          <cn> 0.0247 </cn>
+                        </apply>
+                        <apply>
+                          <exp/>
+                          <apply>
+                            <times/>
+                            <cn> -0.218 </cn>
+                            <ci> Age </ci>
+                          </apply>
+                        </apply>
+                      </apply>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                  <apply>
+                    <leq/>
+                    <ci> Age </ci>
+                    <cn type="integer"> 79 </cn>
+                  </apply>
+                </piece>
+                <otherwise>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <cn> 0.0247 </cn>
+                      <cn type="e-notation"> 5.371498 <sep/> -10 </cn>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                </otherwise>
+              </piecewise>
               <apply>
                 <eq/>
                 <ci> sex </ci>
@@ -1788,7 +1587,50 @@
               </apply>
             </piece>
             <otherwise>
-              <ci> vl_female </ci>
+              <piecewise>
+                <piece>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <cn> 0.0233 </cn>
+                      <apply>
+                        <times/>
+                        <apply>
+                          <minus/>
+                          <cn> 0.038 </cn>
+                          <cn> 0.0233 </cn>
+                        </apply>
+                        <apply>
+                          <exp/>
+                          <apply>
+                            <times/>
+                            <cn> -0.122 </cn>
+                            <ci> Age </ci>
+                          </apply>
+                        </apply>
+                      </apply>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                  <apply>
+                    <leq/>
+                    <ci> Age </ci>
+                    <cn type="integer"> 79 </cn>
+                  </apply>
+                </piece>
+                <otherwise>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <plus/>
+                      <cn> 0.0233 </cn>
+                      <cn type="e-notation"> 9.58489 <sep/> -7 </cn>
+                    </apply>
+                    <ci> wbw </ci>
+                  </apply>
+                </otherwise>
+              </piecewise>
             </otherwise>
           </piecewise>
         </math>
@@ -1813,71 +1655,66 @@
           </apply>
         </math>
       </assignmentRule>
-      <assignmentRule variable="ucr_base">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <minus/>
-            <apply>
-              <plus/>
-              <apply>
-                <minus/>
-                <apply>
-                  <plus/>
-                  <cn> 0.032 </cn>
-                  <apply>
-                    <times/>
-                    <cn> 0.02098 </cn>
-                    <ci> Age </ci>
-                  </apply>
-                  <apply>
-                    <times/>
-                    <cn> 0.009104 </cn>
-                    <apply>
-                      <power/>
-                      <ci> Age </ci>
-                      <cn type="integer"> 2 </cn>
-                    </apply>
-                  </apply>
-                </apply>
-                <apply>
-                  <times/>
-                  <cn> 0.000455 </cn>
-                  <apply>
-                    <power/>
-                    <ci> Age </ci>
-                    <cn type="integer"> 3 </cn>
-                  </apply>
-                </apply>
-              </apply>
-              <apply>
-                <times/>
-                <cn type="e-notation"> 7.578 <sep/> -6 </cn>
-                <apply>
-                  <power/>
-                  <ci> Age </ci>
-                  <cn type="integer"> 4 </cn>
-                </apply>
-              </apply>
-            </apply>
-            <apply>
-              <times/>
-              <cn type="e-notation"> 4.232 <sep/> -8 </cn>
-              <apply>
-                <power/>
-                <ci> Age </ci>
-                <cn type="integer"> 5 </cn>
-              </apply>
-            </apply>
-          </apply>
-        </math>
-      </assignmentRule>
       <assignmentRule variable="ucr">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <piecewise>
             <piece>
               <apply>
                 <times/>
-                <ci> ucr_base </ci>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <minus/>
+                      <apply>
+                        <plus/>
+                        <cn> 0.032 </cn>
+                        <apply>
+                          <times/>
+                          <cn> 0.02098 </cn>
+                          <ci> Age </ci>
+                        </apply>
+                        <apply>
+                          <times/>
+                          <cn> 0.009104 </cn>
+                          <apply>
+                            <power/>
+                            <ci> Age </ci>
+                            <cn type="integer"> 2 </cn>
+                          </apply>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <times/>
+                        <cn> 0.000455 </cn>
+                        <apply>
+                          <power/>
+                          <ci> Age </ci>
+                          <cn type="integer"> 3 </cn>
+                        </apply>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <times/>
+                      <cn type="e-notation"> 7.578 <sep/> -6 </cn>
+                      <apply>
+                        <power/>
+                        <ci> Age </ci>
+                        <cn type="integer"> 4 </cn>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <cn type="e-notation"> 4.232 <sep/> -8 </cn>
+                    <apply>
+                      <power/>
+                      <ci> Age </ci>
+                      <cn type="integer"> 5 </cn>
+                    </apply>
+                  </apply>
+                </apply>
                 <ci> Delta_creat </ci>
               </apply>
               <apply>
