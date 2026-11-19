@@ -4,7 +4,7 @@ This repository contains a revised, FAIR reimplementation of the cadmium PBK mod
 
 Compared with the model from Gastellu et al., the present implementation includes two distinct types of changes. The first concerns model revisions, involving changes to the model formulation itself. The second concerns the FAIR reimplementation, involving changes required to encode the model in Antimony/SBML in accordance with the [FAIR PBK standard](https://doi.org/10.1016/j.comtox.2026.100426). The resulting SBML (FAIR) representation of the model is provided in [pbk_cd_gastellu_2026_revised.sbml](model/pbk_cd_gastellu_2026_revised.sbml). A diagram of the model compartments and species is shown below.
 
-![Model diagram of the EuroMix PBK model](docs/pbk_cd_gastellu_2026_revised.report.svg)
+![Model diagram of the PBK model](docs/pbk_cd_gastellu_2026_revised.report.svg)
 
 
 ## Model revision
